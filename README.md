@@ -26,18 +26,20 @@ This is a React-based web application for managing bank accounts and customers. 
 
 ## Setup and Running the Application
 
-### Backend (Spring Boot)
-
-1. Clone the repository:
+First thing to do is to is get a clone of the project:
     ```
     git clone https://git.fdmgroup.com/Andre.Kleber/accountcustomermanagement_epic5.git
     ```
-2. Navigate to the backend folder : 
+
+### Backend (Spring Boot)
+
+1. Navigate to the backend folder : 
     ```
     cd <repository-folder>/backend
     ```
 
-3. Run the backend application using Eclipse.
+2. Run the backend application using Eclipse:
+   Run _AccountCustomerMngtSpringApplication.java_ as **Sring Boot App**.
 
    The backend will start on `http://localhost:8080`.
 
