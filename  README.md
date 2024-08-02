@@ -28,9 +28,13 @@ This is a React-based web application for managing bank accounts and customers. 
 ### Backend (Spring Boot)
 
 1. Clone the repository:
+
 ```
 git clone <repository-url>
+```
+```
 cd <repository-folder>/backend
 ```
+
 2. Run the backend application using.
 
