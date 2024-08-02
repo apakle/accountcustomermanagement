@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account - BankAccount Application</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>BankAccount Application</h1>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <input type="text" placeholder="Search">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create_customer.html">Add User</a></li>
+                    <li><a href="update_customer.html">Update User</a></li>
+                    <li><a href="view_all_customers.html">All Users</a></li>
+                    <li><a href="view_customer_by_id.html">Find by Id</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h2>Update Account</h2>
+            <h3>Update Savings Account</h3>
+            <form action="#" method="post" class="account-form">               
+                <label for="savings-account-balance">Account Balance:</label>
+                <input type="text" id="savings-account-balance" name="account-balance" required>
+                
+                <label for="interest-rate">Interest Rate:</label>
+                <input type="text" id="interest-rate" name="interest-rate" required>
+                
+                <button type="submit" class="update-account">Update Account</button>
+            </form>
+            <h3>Update Checking Account</h3>
+            <form action="#" method="post" class="account-form">               
+                <label for="checking-account-balance">Account Balance:</label>
+                <input type="text" id="checking-account-balance" name="account-balance" required>
+                
+                <label for="next-check-number">Next Check Number:</label>
+                <input type="text" id="next-check-number" name="next-check-number" required>
+                
+                <button type="submit" class="update-account">Update Account</button>
+            </form>
+        </main>
+        <aside>            
+        </aside>
+    </div>
+    <script>
+        function toggleMenu() {
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.display === 'block') {
+                sidebar.style.display = 'none';
+            } else {
+                sidebar.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

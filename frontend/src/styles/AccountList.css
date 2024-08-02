@@ -1,0 +1,79 @@
+h2 {
+    margin-bottom: 5px;
+}
+  
+.add-account-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}  
+
+.add-account-container select {
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: 2px;
+    font-size: 16px;
+}
+  
+.add-new-account {
+    background-color: #2ecc71;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5em;
+}
+.add-new-account:hover {
+    background-color: #27ae60;
+}
+
+.update {
+    background-color: #f1c40f;
+}
+
+.update:hover {
+    background-color: #e2b607;
+} 
+
+.delete {
+    background-color:  #e74c3c;
+    color: white;
+}
+
+.delete:hover {
+    background-color:  #b83223;
+} 
+
+.update, .delete {
+    padding: 5px 10px;
+    margin-right: 2px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-block;
+}
+
+/* table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+} */

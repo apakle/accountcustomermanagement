@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Customer by ID - BankAccount Application</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>BankAccount Application</h1>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <input type="text" placeholder="Search">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create_customer.html">Add User</a></li>
+                    <li><a href="update_customer.html">Update User</a></li>
+                    <li><a href="view_all_customers.html">All Users</a></li>
+                    <li><a href="view_customer_by_id.html">Find by Id</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h2>View Customer by ID</h2>
+            <form action="#" method="get" class="customer-form">
+                <label for="customer-id">Customer ID:</label>
+                <input type="text" id="customer-id" name="customer-id" required>
+                <button type="submit" class="view-customer">View Customer</button>
+            </form>
+            <div id="customer-details">
+                <!-- Customer details will be displayed here -->
+            </div>
+        </main>
+        <aside>            
+        </aside>
+    </div>
+    <script>
+        document.querySelector('.customer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const customerId = document.getElementById('customer-id').value;
+            // Simulate fetching customer data
+            const customerData = {
+                1001: {name: "FDM", streetNumber: "13 KENWORTH STREET", postalCode: "T3R 3E3", city: "TORONTO", province: "ONTARIO"},
+                1002: {name: "JOHN", streetNumber: "2 QUEEN STREET", postalCode: "R43 6Y6", city: "CALEDON", province: "ONTARIO"}
+            };
+            const customer = customerData[customerId];
+            const customerDetailsDiv = document.getElementById('customer-details');
+            if (customer) {
+                customerDetailsDiv.innerHTML = `
+                    <h3>Customer Details</h3>
+                    <p><strong>Name:</strong> ${customer.name}</p>
+                    <p><strong>Street Number:</strong> ${customer.streetNumber}</p>
+                    <p><strong>Postal Code:</strong> ${customer.postalCode}</p>
+                    <p><strong>City:</strong> ${customer.city}</p>
+                    <p><strong>Province:</strong> ${customer.province}</p>
+                `;
+            } else {
+                customerDetailsDiv.innerHTML = `<p>No customer found with ID ${customerId}</p>`;
+            }
+        });
+    </script>
+    <script>
+        function toggleMenu() {
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.display === 'block') {
+                sidebar.style.display = 'none';
+            } else {
+                sidebar.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

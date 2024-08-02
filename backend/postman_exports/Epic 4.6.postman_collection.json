@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "a6c9ad4a-1dfe-451f-b829-e37745bf2a9e",
+		"name": "Epic 4.6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36930526"
+	},
+	"item": [
+		{
+			"name": "findAccountByCity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accounts/by-city/TORONTO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"by-city",
+						"TORONTO"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

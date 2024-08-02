@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "ca0407fe-e4c7-4929-b2b1-5020d2d907b2",
+		"name": "Epic 4.4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36930526"
+	},
+	"item": [
+		{
+			"name": "createCompany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"FDM\",\r\n    \"address\": {\r\n                \"streetNumber\": \"\",\r\n                \"postalCode\": \"T3R 3E3\",\r\n                \"city\": \"TORONTO\",\r\n                \"province\": \"ONTARIO\"\r\n                }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"JOHN\",\r\n    \"address\": {\r\n                \"streetNumber\": \"2 QUEEN STREET\",\r\n                \"postalCode\": \"R43 6Y6\",\r\n                \"city\": \"CALEDON\",\r\n                \"province\": \"ONTARIO\"\r\n                }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePerson",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Updated Person Name\",\r\n    \"address\": {\r\n                \"streetNumber\": \"Updated street\",\r\n                \"postalCode\": \"\",\r\n                \"city\": \"Updated city\",\r\n                \"province\": \"Updated province\"\r\n               }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/person/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"person",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCompany",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Updated Company Name\",\r\n    \"address\": {\r\n                \"streetNumber\": \"Updated street\",\r\n                \"postalCode\": \"Updated postal code\",\r\n                \"city\": \"Updated city\",\r\n                \"province\": \"Updated province\"\r\n               }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/company/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"company",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

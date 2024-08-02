@@ -1,0 +1,40 @@
+  
+.view-customer select {
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: 2px;
+    font-size: 16px;
+}
+
+.view-customer button {
+    background-color: #3498db;
+    color: white;
+    padding: 3px 7px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.view-customer button:hover {
+  background-color: #1686d1;
+}
+
+.accounts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .accounts-container h3 {
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-size: 1.5em;
+  }
+  
+  .accounts-container table {
+    margin-top: 0;
+  }
