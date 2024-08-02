@@ -39,6 +39,7 @@ First thing to do is to is get a clone of the project:
     ```
 
 2. Run the backend application using Eclipse:
+
    Run _AccountCustomerMngtSpringApplication.java_ as **Sring Boot App**.
 
    The backend will start on `http://localhost:8080`.
