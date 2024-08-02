@@ -33,6 +33,10 @@ git clone <repository-url>
 cd <repository-folder>/backend
 
 ```
-2. Run the backend application using.
-The backend will start on http://localhost:8080.
+2. Run the backend application using Eclipse. The backend will start on http://localhost:8080.
+
+### Frontend (React)
+Navigate to the frontend directory:
+`cd <repository-folder>/frontend`
+
 
