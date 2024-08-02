@@ -51,3 +51,10 @@ npm install axios
 npm start
 ```
 
+## Application Pages and Components
+
+## Home (/)
+- **Component**: AccountList
+- **Description**: Displays all accounts with functionalities to add a new account to a customer, update existing accounts, and delete accounts.
+
+
