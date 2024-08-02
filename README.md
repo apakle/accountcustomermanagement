@@ -95,7 +95,7 @@ First thing to do is to get a clone of the project:
 ### View All Customers (`/view_all_customers`)
 
 - **Component**: `CustomerList`
-- **Description**: Displays a list of all customers with functionalities to update or delete a customer.
+- **Description**: Displays a list of all customers with functionalities to update or delete a customer, and also to add an account to a customer.
 
   ![View All Customers](./screenshots/view_all_customers.png)
 
@@ -109,7 +109,7 @@ First thing to do is to get a clone of the project:
 ### Update Customer (`/update-customer/:customerType/:id`)
 
 - **Component**: `UpdateCustomer`
-- **Description**: Allows updating the details of an existing customer. Depending on the customer type, the user can update the name, address details, and customer type.
+- **Description**: Allows updating the details of an existing customer (name and address details).
 
   ![Update Customer](./screenshots/update_customer.png)
 
@@ -153,8 +153,7 @@ First thing to do is to get a clone of the project:
 ### `CustomerList` Component
 
 - Fetches and displays all customers from the backend.
-- Provides buttons to update or delete each customer.
-- Displays associated accounts for each customer.
+- Provides buttons to update or delete each customer, and a button to add an account to a customer.
 
 ### `NewCustomer` Component
 

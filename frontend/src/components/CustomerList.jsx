@@ -72,7 +72,7 @@ const CustomerList = () => {
               <td>{customer.address.postalCode}</td>
               <td>{customer.address.city}</td>
               <td>{customer.address.province}</td>
-              <td>{customer.customerType}</td> {/* Display the customer type */}
+              <td>{customer.customerType}</td>
               <td>
                 <button onClick={() => handleUpdate(customer.customerId, customer.customerType)} className="update">Update</button>
                 <button onClick={() => handleDelete(customer.customerId)} className="delete">Delete</button>
