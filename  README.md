@@ -31,8 +31,6 @@ This is a React-based web application for managing bank accounts and customers. 
 
 ```
 git clone <repository-url>
-```
-```
 cd <repository-folder>/backend
 ```
 
