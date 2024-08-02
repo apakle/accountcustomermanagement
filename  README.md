@@ -29,14 +29,25 @@ This is a React-based web application for managing bank accounts and customers. 
 
 1. Clone the repository:
 ```
-git clone <repository-url>
+git clone https://git.fdmgroup.com/Andre.Kleber/accountcustomermanagement_epic5.git
 cd <repository-folder>/backend
 
 ```
 2. Run the backend application using Eclipse. The backend will start on http://localhost:8080.
 
 ### Frontend (React)
-Navigate to the frontend directory:
-`cd <repository-folder>/frontend`
-
+1. Navigate to the frontend directory:
+```
+cd <repository-folder>/frontend
+```
+2. Install the dependencies:
+```
+npm install
+npm install react-router-dom
+npm install axios
+```
+3. Start the React application:
+```
+npm start
+```
 
