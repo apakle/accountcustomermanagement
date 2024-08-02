@@ -125,14 +125,10 @@ First thing to do is to get a clone of the project:
 - **Component**: `ComingSoon`
 - **Description**: Displays a "Coming soon!" message. No further functionality is implemented.
 
-  ![Login](./screenshots/coming_soon.png)
-
 ### Register (`/register`)
 
 - **Component**: `ComingSoon`
 - **Description**: Displays a "Coming soon!" message. No further functionality is implemented.
-
-  ![Register](./screenshots/coming_soon.png)
 
 ## Component Details
 
