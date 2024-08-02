@@ -29,8 +29,10 @@ This is a React-based web application for managing bank accounts and customers. 
 ### Backend (Spring Boot)
 
 1. Clone the repository:
-    ```bash
+    ```
     git clone https://git.fdmgroup.com/Andre.Kleber/accountcustomermanagement_epic5.git
+    ```
+    ```
     cd <repository-folder>/backend
     ```
 
