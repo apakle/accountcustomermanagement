@@ -62,4 +62,13 @@ public class AccountService {
         }
         return accounts;
     }
+    
+    public Account deposit(Long accountId, double amount) {
+        Account account = accountRepo.findById(accountId).orElse(null);
+        if (account != null) {
+        	account.deposit(amount);
+        	return accountRepo.save(account);
+        }
+        return null; 
+    }
 }

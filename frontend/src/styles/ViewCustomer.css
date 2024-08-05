@@ -27,14 +27,31 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
-  
-  .accounts-container h3 {
-    margin-bottom: 10px;
-    margin-left: 5px;
-    font-size: 1.5em;
-  }
-  
-  .accounts-container table {
-    margin-top: 0;
-  }
+}
+
+.accounts-container h3 {
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-size: 1.5em;
+}
+
+.accounts-container table {
+  margin-top: 0;
+}
+
+.view-customer tbody .deposit {
+  background-color: #f1c40f;
+  color: black;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  margin-right: 5px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; 
+  display: inline-block;
+}
+
+.view-customer tbody .deposit:hover {
+  background-color: #e2b607;
+} 

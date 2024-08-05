@@ -87,14 +87,6 @@ main {
     display: inline-block;
 }
 
-.updateButton, .deleteButton {
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none; 
-    display: inline-block;
-}
-
 /* Table Styles */
 table {
     width: 100%;

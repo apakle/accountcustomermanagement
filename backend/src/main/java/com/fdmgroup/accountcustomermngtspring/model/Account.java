@@ -48,4 +48,12 @@ public abstract class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+    
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+        } else {
+            throw new IllegalArgumentException("Deposit amount must be positive");
+        }
+    }
 }

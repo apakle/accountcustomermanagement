@@ -166,4 +166,18 @@ public class AccountController {
         Account updatedAccount = accountService.updateAccount(checkingAccount);
         return ResponseEntity.ok(updatedAccount);
     }
+    
+    @Operation(summary = "Allows us to deposit into an account")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Account resource successfully updated with deposit amount."),
+            @ApiResponse(responseCode = "404")
+    })
+    @PutMapping("/{id}/deposit")
+    public ResponseEntity<Account> deposit(@PathVariable Long id, @RequestParam double amount) {
+        Account updatedAccount = accountService.deposit(id, amount);
+        if (updatedAccount != null) {
+            return ResponseEntity.ok(updatedAccount);
+        }
+        throw new AccountNotFoundException("Account id=" + id + " not found"); 
+    }
 }

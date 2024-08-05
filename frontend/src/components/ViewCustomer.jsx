@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import '../styles/ViewCustomer.css';
 
 const ViewCustomer = () => {
@@ -7,6 +8,8 @@ const ViewCustomer = () => {
   const [customerData, setCustomerData] = useState(null);
   const [customers, setCustomers] = useState([]);
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const loadCustomerData = () => {
     const api = `http://localhost:8080/api/v1/customers/${customerId}`;
@@ -46,6 +49,10 @@ const ViewCustomer = () => {
     }
   };
 
+  const handleDeposit = (accountId) => {
+    navigate(`/deposit/${accountId}`);
+  };
+
   return (
     <div className="view-customer">
       <h2>View Customer</h2>
@@ -80,6 +87,7 @@ const ViewCustomer = () => {
                   <th>Interest Rate</th>
                   <th>Next Check Number</th>
                   <th>Account Type</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,6 +98,9 @@ const ViewCustomer = () => {
                     <td>{account.type === 'savings' ? `${account.interestRate}%` : '-'}</td>
                     <td>{account.type === 'checking' ? account.nextCheckNumber : '-'}</td>
                     <td>{account.type}</td>
+                    <td>
+                     <button onClick={() => handleDeposit(account.accountId)} className="deposit">Deposit Money</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

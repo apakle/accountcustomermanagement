@@ -1,0 +1,13 @@
+.deposit form {
+    margin-top: 50px;
+}
+
+.deposit label {
+
+}
+
+.deposit input {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 10%;
+}
