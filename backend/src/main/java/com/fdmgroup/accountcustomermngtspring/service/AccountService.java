@@ -71,4 +71,13 @@ public class AccountService {
         }
         return null; 
     }
+    
+    public Account withdraw(Long accountId, double amount) {
+        Account account = accountRepo.findById(accountId).orElse(null);
+        if (account != null) {
+            account.withdraw(amount);
+            return accountRepo.save(account);
+        }
+        return null;
+    }
 }

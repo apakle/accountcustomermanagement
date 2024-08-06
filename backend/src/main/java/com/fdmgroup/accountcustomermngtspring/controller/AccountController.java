@@ -180,4 +180,13 @@ public class AccountController {
         }
         throw new AccountNotFoundException("Account id=" + id + " not found"); 
     }
+    
+    @PutMapping("/{id}/withdraw")
+    public ResponseEntity<Account> withdraw(@PathVariable Long id, @RequestParam double amount) {
+        Account updatedAccount = accountService.withdraw(id, amount);
+        if (updatedAccount != null) {
+            return ResponseEntity.ok(updatedAccount);
+        }
+        throw new AccountNotFoundException("Account id=" + id + " not found");
+    }
 }

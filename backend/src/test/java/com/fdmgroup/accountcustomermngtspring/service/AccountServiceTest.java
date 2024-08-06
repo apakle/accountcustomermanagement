@@ -186,5 +186,73 @@ class AccountServiceTest {
         assertFalse(isDeleted);
         verify(mockAccountRepo, never()).deleteById(accountId);
     }
+    
+    @Test
+    void test_deposit_increasesAccountBalance() {
+        // Setup test data
+        long accountId = 2L;
+        CheckingAccount checkingAccount = new CheckingAccount(120.0, 1);
+        checkingAccount.setAccountId(accountId);
+        
+        double depositAmount = 80.0;
+        double expectedBalance = 200.0;
+
+        // Mock the repository call
+        when(mockAccountRepo.findById(accountId)).thenReturn(Optional.of(checkingAccount));
+        when(mockAccountRepo.save(checkingAccount)).thenReturn(checkingAccount);
+
+        // Act
+        Account updatedAccount = accountService.deposit(accountId, depositAmount);
+
+        // Assert
+        assertEquals(expectedBalance, updatedAccount.getBalance());
+        verify(mockAccountRepo).save(checkingAccount);
+    }
+    
+    @Test
+    void test_withdraw_decreasesAccountBalance() {
+        // Setup test data
+        long accountId = 2L;
+        CheckingAccount checkingAccount = new CheckingAccount(200.0, 1);
+        checkingAccount.setAccountId(accountId);
+
+        double withdrawAmount = 80.0;
+        double expectedBalance = 120.0;
+
+        // Mock the repository call
+        when(mockAccountRepo.findById(accountId)).thenReturn(Optional.of(checkingAccount));
+        when(mockAccountRepo.save(checkingAccount)).thenReturn(checkingAccount);
+
+        // Act
+        Account updatedAccount = accountService.withdraw(accountId, withdrawAmount);
+
+        // Assert
+        assertEquals(expectedBalance, updatedAccount.getBalance());
+        verify(mockAccountRepo).save(checkingAccount);
+    }
+
+    @Test
+    void test_withdraw_throwsException_whenOverdrawnSavingsAccount() {
+        // Setup test data
+        long accountId = 1L;
+        SavingsAccount savingsAccount = new SavingsAccount(100.0, 2.0);
+        savingsAccount.setAccountId(accountId);
+
+        double withdrawAmount = 150.0;
+
+        // Mock the repository call
+        when(mockAccountRepo.findById(accountId)).thenReturn(Optional.of(savingsAccount));
+
+        // Act & Assert
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            accountService.withdraw(accountId, withdrawAmount);
+        });
+
+        String expectedMessage = "Cannot overdraw a savings account";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+        verify(mockAccountRepo, never()).save(savingsAccount);
+    }
 	
 }

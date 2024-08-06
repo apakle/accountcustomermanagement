@@ -25,7 +25,7 @@ public abstract class Account {
     private long accountId;
     @Column(nullable = false)
     @NotNull (message = "Balance must not be null")
-    private double balance;
+	protected double balance;
 
     Account() {}
 
@@ -54,6 +54,14 @@ public abstract class Account {
             this.balance += amount;
         } else {
             throw new IllegalArgumentException("Deposit amount must be positive");
+        }
+    }
+    
+    public void withdraw(double amount) {
+        if (amount > 0) {
+            this.balance -= amount;
+        } else {
+            throw new IllegalArgumentException("Withdrawal amount must be positive");
         }
     }
 }

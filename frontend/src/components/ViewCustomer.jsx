@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/ViewCustomer.css';
 
 const ViewCustomer = () => {
@@ -10,9 +10,22 @@ const ViewCustomer = () => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const loadCustomerData = () => {
-    const api = `http://localhost:8080/api/v1/customers/${customerId}`;
+  useEffect(() => {
+    loadCustomers();
+  }, []);
+
+  useEffect(() => {
+    if (location.state && location.state.customerId) {
+      const id = location.state.customerId;
+      setCustomerId(id);
+      loadCustomerData(id);
+    }
+  }, [location.state]);
+
+  const loadCustomerData = (id) => {
+    const api = `http://localhost:8080/api/v1/customers/${id}`;
     axios.get(api)
       .then(response => {
         setCustomerData(response.data);
@@ -25,10 +38,6 @@ const ViewCustomer = () => {
       });
   };
 
-  useEffect(() => {
-    loadCustomers();
-  }, []);
-
   const loadCustomers = () => {
     axios.get('http://localhost:8080/api/v1/customers')
       .then(response => setCustomers(response.data))
@@ -36,15 +45,11 @@ const ViewCustomer = () => {
   };
 
   const handleCustomerChange = (event) => {
-    setCustomerId(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (customerId) {
-      loadCustomerData();
+    const selectedCustomerId = event.target.value;
+    setCustomerId(selectedCustomerId);
+    if (selectedCustomerId) {
+      loadCustomerData(selectedCustomerId);
     } else {
-      alert('Please select a customer.');
       setCustomerData(null);
     }
   };
@@ -53,10 +58,14 @@ const ViewCustomer = () => {
     navigate(`/deposit/${accountId}`);
   };
 
+  const handleWithdraw = (accountId) => {
+    navigate(`/withdraw/${accountId}`);
+  };
+
   return (
     <div className="view-customer">
       <h2>View Customer</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <select value={customerId} onChange={handleCustomerChange}>
           <option value="">Select Customer</option>
           {customers.map(customer => (
@@ -65,7 +74,6 @@ const ViewCustomer = () => {
             </option>
           ))}
         </select>
-        <button type="submit">Fetch Customer</button>
       </form>
       {error && <p>{error}</p>}
       {customerData && (
@@ -87,7 +95,7 @@ const ViewCustomer = () => {
                   <th>Interest Rate</th>
                   <th>Next Check Number</th>
                   <th>Account Type</th>
-                  <th>Action</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -99,7 +107,8 @@ const ViewCustomer = () => {
                     <td>{account.type === 'checking' ? account.nextCheckNumber : '-'}</td>
                     <td>{account.type}</td>
                     <td>
-                     <button onClick={() => handleDeposit(account.accountId)} className="deposit">Deposit Money</button>
+                      <button onClick={() => handleDeposit(account.accountId)} className="deposit">Deposit Money</button>
+                      <button onClick={() => handleWithdraw(account.accountId)} className="withdraw">Withdraw Money</button>
                     </td>
                   </tr>
                 ))}

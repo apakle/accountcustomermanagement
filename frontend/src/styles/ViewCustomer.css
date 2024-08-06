@@ -40,7 +40,7 @@
 }
 
 .view-customer tbody .deposit {
-  background-color: #f1c40f;
+  background-color: #0ff1b8;
   color: black;
   padding: 5px 10px;
   font-size: 0.8em;
@@ -53,5 +53,22 @@
 }
 
 .view-customer tbody .deposit:hover {
+  background-color: #0fcf9f;
+} 
+
+.view-customer tbody .withdraw {
+  background-color: #f1c40f;
+  color: black;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  margin-right: 5px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; 
+  display: inline-block;
+}
+
+.view-customer tbody .withdraw:hover {
   background-color: #e2b607;
 } 

@@ -209,7 +209,63 @@ class AccountControllerTest {
         verify(mockAccountService).deleteAccount(accountId);
     }
     
+    @Test
+    void test_deposit_increasesAccountBalance() throws Exception {
+        // Setup test data
+        long accountId = 2L;
+        CheckingAccount checkingAccount = new CheckingAccount(120.0, 1);
+        checkingAccount.setAccountId(accountId);
+
+        double depositAmount = 80.0;
+        double expectedBalance = 200.0;
+        
+        // Prepare the URL
+        String url = "/api/v1/accounts/{id}/deposit";
+
+        // Mock the service call to return the updated account with the new balance
+        CheckingAccount updatedCheckingAccount = new CheckingAccount(expectedBalance, 1);
+        updatedCheckingAccount.setAccountId(accountId);        
+        when(mockAccountService.deposit(accountId, depositAmount)).thenReturn(updatedCheckingAccount);
+
+        // Perform the request and verify the response
+        mockMvc.perform(MockMvcRequestBuilders.put(url, accountId)
+                .param("amount", String.valueOf(depositAmount)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.balance").value(expectedBalance))
+                .andDo(MockMvcResultHandlers.print());
+
+        // Verify the service method was called
+        verify(mockAccountService).deposit(accountId, depositAmount);
+    }
     
+    @Test
+    void test_withdraw_decreasesAccountBalance() throws Exception {
+        // Setup test data
+        long accountId = 2L;
+        CheckingAccount checkingAccount = new CheckingAccount(200.0, 1);
+        checkingAccount.setAccountId(accountId);
+
+        double withdrawAmount = 80.0;
+        double expectedBalance = 120.0;
+        
+        // Prepare the URL
+        String url = "/api/v1/accounts/{id}/withdraw";
+
+        // Mock the service call to return the updated account with the new balance
+        CheckingAccount updatedCheckingAccount = new CheckingAccount(expectedBalance, 1);
+        updatedCheckingAccount.setAccountId(accountId);
+        when(mockAccountService.withdraw(accountId, withdrawAmount)).thenReturn(updatedCheckingAccount);
+
+        // Perform the request and verify the response
+        mockMvc.perform(MockMvcRequestBuilders.put(url, accountId)
+                .param("amount", String.valueOf(withdrawAmount)))
+        		.andExpect(MockMvcResultMatchers.status().isOk())
+        		.andExpect(MockMvcResultMatchers.jsonPath("$.balance").value(expectedBalance))
+                .andDo(MockMvcResultHandlers.print());
+
+        // Verify the service method was called
+        verify(mockAccountService).withdraw(accountId, withdrawAmount);
+    }
     
 
 }

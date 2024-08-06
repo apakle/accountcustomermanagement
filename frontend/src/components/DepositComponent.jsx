@@ -32,7 +32,7 @@ const DepositComponent = () => {
       <h2>Make a Deposit</h2>
       <form onSubmit={handleDeposit}>
         <label>
-        <strong>Amount</strong>:
+        <strong>Amount:</strong>
           <input 
             type="text" 
             value={amount} 

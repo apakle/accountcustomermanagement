@@ -24,4 +24,17 @@ public class SavingsAccount extends Account {
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
+    
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0) {
+            if (this.balance >= amount) {
+                this.balance -= amount;
+            } else {
+                throw new IllegalArgumentException("Cannot overdraw a savings account");
+            }
+        } else {
+            throw new IllegalArgumentException("Withdrawal amount must be positive");
+        }
+    }
 }

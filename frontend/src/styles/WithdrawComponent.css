@@ -1,0 +1,13 @@
+.withdraw form {
+    margin-top: 50px;
+}
+
+.withdraw label {
+
+}
+
+.withdraw input {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 10%;
+}

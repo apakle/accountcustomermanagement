@@ -10,6 +10,7 @@ import NewAccount from './components/NewAccount';
 import UpdateAccount from './components/UpdateAccount';
 import ViewCustomer from './components/ViewCustomer'; 
 import DepositComponent from './components/DepositComponent';
+import WithdrawComponent from './components/WithdrawComponent';
 import ComingSoon from './components/ComingSoon';
 import './App.css';
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/update-account/:id" element={<UpdateAccount />} /> 
             <Route path="/find-customer" element={<ViewCustomer />} />
             <Route path="/deposit/:accountId" element={<DepositComponent />} />
+            <Route path="/withdraw/:accountId" element={<WithdrawComponent />} />
             <Route path="/login" element={<ComingSoon />} /> 
             <Route path="/register" element={<ComingSoon />} />
           </Routes>
